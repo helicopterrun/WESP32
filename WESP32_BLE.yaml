@@ -1,5 +1,5 @@
 substitutions:
-  name: "WESP32_BLE_Proxy"
+  name: "wesp32_ble_proxy"
   room: "dining-room"
   friendly_name: "Dining Room Bluetooth Proxy"
   comment: "Work in progress, demonstrates bluetooth proxy over ethernet with POE."

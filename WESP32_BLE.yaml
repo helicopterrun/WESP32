@@ -1,0 +1,55 @@
+substitutions:
+  name: "WESP32_BLE_Proxy"
+  room: "dining-room"
+  friendly_name: "Dining Room Bluetooth Proxy"
+  comment: "Work in progress, demonstrates bluetooth proxy over ethernet with POE."
+  project_name: "esphome.wesp-32-template"
+  project_version: "1.0"
+
+esphome:
+  name: "${name}"
+  name_add_mac_suffix: true
+  comment: "${comment}"
+  project:
+    name: "${project_name}"
+    version: "${project_version}"
+
+esp32:
+  board: esp32dev
+  framework:
+    type: esp-idf
+
+# To be able to get logs from the device via serial and api.
+logger:
+
+# API is a requirement of the dashboard import.
+api:
+
+# OTA is required for Over-the-Air updating
+ota:
+
+dashboard_import:
+  package_import_url: github://helicopterrun/WESP32/WESP32_BLE.yaml@main
+  import_full_config: false
+
+ethernet:
+  type: RTL8201
+  mdc_pin: GPIO16
+  mdio_pin: GPIO17
+  clk_mode: GPIO0_IN
+  phy_addr: 0
+  manual_ip:
+    static_ip: 192.168.50.178
+    gateway: 192.168.50.1
+    subnet: 255.255.255.0
+  
+esp32_ble_tracker:
+  scan_parameters:
+    interval: 1100ms
+    window: 1100ms
+    active: true
+
+bluetooth_proxy:
+  active: true
+
+sensor:

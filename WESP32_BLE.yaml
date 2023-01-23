@@ -29,7 +29,7 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://helicopterrun/WESP32/WESP32_BLE.yaml@main
+  package_import_url: github://helicopterrun/WESP32/WESP32_BLE.yaml@template
   import_full_config: false
 
 ethernet:
